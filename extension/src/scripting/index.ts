@@ -1,3 +1,4 @@
+import styleText from "data-text:../style.css";
 import ChatMutationObserver from "@Scripting/observer";
 import PageWatcher, {
   PageWatcherState,
@@ -16,6 +17,11 @@ export default class Kernel {
     this.observer = new ChatMutationObserver();
     this.pageWatcher = new PageWatcher();
     this.pageWatcher.init();
+
+    // Add a style element to the head
+    const style = document.createElement("style");
+    style.textContent = styleText;
+    document.head.appendChild(style);
   }
 
   init = () => {
